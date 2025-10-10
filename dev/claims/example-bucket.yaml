@@ -1,0 +1,42 @@
+---
+# Example: S3 Bucket Claim for Development
+apiVersion: platform.example.com/v1alpha1
+kind: Bucket
+metadata:
+  name: dev-app-storage
+  namespace: dev
+  labels:
+    app: my-app
+    environment: dev
+    cost-center: CC-DEVELOPMENT
+    owner: team@example.com
+    team: backend-team
+spec:
+  # Storage configuration
+  storageClass: standard
+  
+  # Access control
+  publicAccess: false
+  
+  # Versioning
+  versioning: false  # Desabilitado em dev
+  
+  # Lifecycle
+  lifecycle:
+    enabled: true
+    expirationDays: 30  # Limpar arquivos antigos em dev
+  
+  # Encryption
+  encryption:
+    enabled: true
+  
+  # Governance (obrigatório)
+  environment: dev
+  costCenter: CC-DEVELOPMENT
+  owner: team@example.com
+  
+  # Tags
+  tags:
+    project: my-project
+    purpose: application-storage
+

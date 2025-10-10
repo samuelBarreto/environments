@@ -1,0 +1,49 @@
+---
+# Example: PostgreSQL Database Claim for Development
+apiVersion: platform.example.com/v1alpha1
+kind: Database
+metadata:
+  name: dev-app-database
+  namespace: dev
+  labels:
+    app: my-app
+    environment: dev
+    cost-center: CC-DEVELOPMENT
+    owner: team@example.com
+    team: backend-team
+spec:
+  # Database configuration
+  engine: postgresql
+  engineVersion: "15"
+  size: small
+  storageGB: 20
+  
+  # Networking
+  networkRef:
+    id: vpc-123456  # Substituir pelo VPC ID real
+    subnetIds:
+    - subnet-abc123
+    - subnet-def456
+  
+  # High Availability
+  highAvailability: false  # Desabilitado em dev para reduzir custos
+  
+  # Backup
+  backup:
+    enabled: true
+    retentionDays: 7
+    window: "03:00-04:00"
+  
+  # Security
+  publiclyAccessible: false
+  
+  # Governance (obrigatório)
+  environment: dev
+  costCenter: CC-DEVELOPMENT
+  owner: team@example.com
+  
+  # Tags customizadas
+  tags:
+    project: my-project
+    managed-by: platform-team
+
