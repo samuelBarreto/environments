@@ -17,7 +17,7 @@ resources:
 # Labels comuns para todos os recursos
 commonLabels:
   managed-by: kustomize
-  environment: prod
+  environment: prod # ← Composition usa isso para escolher secret aws-dev
 
 # Annotations comuns
 commonAnnotations:

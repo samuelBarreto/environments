@@ -6,7 +6,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 # Namespace padrão para todos os recursos
-namespace: hlm
+namespace: hlm  # ← Composition usa isso para escolher secret aws-dev
 
 # Recursos (claims) a serem aplicados
 resources:

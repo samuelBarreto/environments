@@ -7,7 +7,7 @@ metadata:
   namespace: hlm
   labels:
     app: my-app
-    environment: hlm
+    environment: hlm # ← Composition usa isso para escolher secret aws-dev
     cost-center: CC-HOMOLOGATION
     team: backend-team
   annotations:
