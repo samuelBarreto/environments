@@ -23,8 +23,8 @@ spec:
   networkRef:
     id: vpc-123456  # Substituir pelo VPC ID real
     subnetIds:
-    - subnet-abc123
-    - subnet-def456
+    - subnet-abc123 # Substituir pelo Subnet ID real
+    - subnet-def456 # Substituir pelo Subnet ID real
   
   # High Availability
   highAvailability: false  # Desabilitado em dev para reduzir custos
