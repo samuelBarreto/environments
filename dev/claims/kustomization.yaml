@@ -1,0 +1,26 @@
+---
+# Kustomization para ambiente DEV
+# Lista os claims que serão aplicados neste ambiente
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Namespace padrão para todos os recursos
+namespace: dev
+
+# Recursos (claims) a serem aplicados
+resources:
+- example-bucket.yaml
+- example-vpc.yaml
+# - example-database.yaml  # Descomente quando a VPC estiver pronta
+# - teste-bucket.yaml      # Bucket adicional para testes
+
+# Labels comuns para todos os recursos
+commonLabels:
+  managed-by: kustomize
+  environment: dev
+
+# Annotations comuns
+commonAnnotations:
+  kustomize.toolkit.fluxcd.io/prune: "true"
+
