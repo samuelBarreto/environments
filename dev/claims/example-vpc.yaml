@@ -1,0 +1,55 @@
+---
+# VPC para ambiente de desenvolvimento
+# Com subnets públicas e privadas
+apiVersion: platform.example.com/v1alpha1
+kind: Network
+metadata:
+  name: dev-vpc
+  namespace: dev
+  labels:
+    environment: dev
+    cost-center: CC-DEVELOPMENT
+    team: platform-team
+  annotations:
+    owner: platform@example.com
+    description: "VPC de desenvolvimento com subnets públicas e privadas"
+spec:
+  # VPC CIDR
+  cidrBlock: "10.0.0.0/16"
+  
+  # Região AWS
+  region: us-east-1
+  
+  # Subnets públicas (acesso à internet via Internet Gateway)
+  subnets:
+    public:
+    - cidrBlock: "10.0.1.0/24"
+      availabilityZone: us-east-1a
+    - cidrBlock: "10.0.2.0/24"
+      availabilityZone: us-east-1b
+    
+    # Subnets privadas (sem acesso direto à internet)
+    private:
+    - cidrBlock: "10.0.11.0/24"
+      availabilityZone: us-east-1a
+    - cidrBlock: "10.0.12.0/24"
+      availabilityZone: us-east-1b
+  
+  # NAT Gateway para subnets privadas acessarem internet (opcional)
+  enableNatGateway: false  # Desabilitado em dev para economizar ($)
+  
+  # DNS
+  enableDnsHostnames: true
+  enableDnsSupport: true
+  
+  # Governance (obrigatório)
+  environment: dev
+  costCenter: CC-DEVELOPMENT
+  owner: platform@example.com
+  
+  # Tags customizadas
+  tags:
+    project: crossplane-platform
+    managed-by: crossplane
+    purpose: development-networking
+
