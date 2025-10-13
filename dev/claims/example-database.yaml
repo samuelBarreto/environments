@@ -19,12 +19,12 @@ spec:
   size: small
   storageGB: 20
   
-  # Networking
+  # Networking (usar VPC quando estiver pronta)
   networkRef:
-    id: vpc-123456  # Substituir pelo VPC ID real
+    id: vpc-123456  # Substituir pelo VPC ID real após criar a VPC
     subnetIds:
-    - subnet-abc123 # Substituir pelo Subnet ID real
-    - subnet-def456 # Substituir pelo Subnet ID real
+    - subnet-abc123
+    - subnet-def456
   
   # High Availability
   highAvailability: false  # Desabilitado em dev para reduzir custos
