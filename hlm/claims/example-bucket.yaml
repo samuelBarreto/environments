@@ -1,0 +1,44 @@
+---
+# Example: S3 Bucket Claim for Homologation/Staging
+apiVersion: platform.example.com/v1alpha1
+kind: Bucket
+metadata:
+  name: hlm-app-storage
+  namespace: hlm
+  labels:
+    app: my-app
+    environment: hlm
+    cost-center: CC-HOMOLOGATION
+    team: backend-team
+  annotations:
+    owner: team@example.com  # Email vai em annotations, não em labels
+spec:
+  # Storage configuration
+  storageClass: standard
+  
+  # Access control
+  publicAccess: false
+  
+  # Versioning
+  versioning: true  # Habilitado em homologação (simular prod)
+  
+  # Lifecycle
+  lifecycle:
+    enabled: true
+    expirationDays: 60  # Retenção maior que dev
+  
+  # Encryption
+  encryption:
+    enabled: true
+  
+  # Governance (obrigatório)
+  environment: hlm
+  costCenter: CC-HOMOLOGATION
+  owner: team@example.com
+  
+  # Tags
+  tags:
+    project: my-project
+    purpose: application-storage
+    tier: staging
+
