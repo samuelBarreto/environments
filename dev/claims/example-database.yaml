@@ -9,8 +9,9 @@ metadata:
     app: my-app
     environment: dev
     cost-center: CC-DEVELOPMENT
-    owner: team@example.com
     team: backend-team
+  annotations:
+    owner: team@example.com  # Email vai em annotations, não em labels
 spec:
   # Database configuration
   engine: postgresql

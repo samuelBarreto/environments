@@ -3,7 +3,7 @@
 apiVersion: platform.example.com/v1alpha1
 kind: Bucket
 metadata:
-  name: dev-app-storage
+  name: dev-app-storage-teste
   namespace: dev
   labels:
     app: my-app

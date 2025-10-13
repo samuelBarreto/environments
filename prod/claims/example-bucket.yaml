@@ -1,0 +1,57 @@
+---
+# Example: S3 Bucket Claim for Production
+apiVersion: platform.example.com/v1alpha1
+kind: Bucket
+metadata:
+  name: prod-app-storage
+  namespace: prod
+  labels:
+    app: my-app
+    environment: prod
+    cost-center: CC-PRODUCTION
+    team: backend-team
+  annotations:
+    owner: team@example.com  # Email vai em annotations, não em labels
+spec:
+  # Storage configuration
+  storageClass: intelligent-tiering  # Otimização de custos
+  
+  # Access control
+  publicAccess: false  # NUNCA true em produção
+  
+  # Versioning
+  versioning: true  # Habilitado em produção
+  
+  # Lifecycle
+  lifecycle:
+    enabled: true
+    transitions:
+    - days: 90
+      storageClass: glacier
+    - days: 365
+      storageClass: deep-archive
+  
+  # Encryption
+  encryption:
+    enabled: true
+    kmsKeyId: alias/prod-s3-encryption
+  
+  # Replication
+  replication:
+    enabled: true
+    destinationBucket: prod-app-storage-backup
+    destinationRegion: us-west-2
+  
+  # Governance (obrigatório)
+  environment: prod
+  costCenter: CC-PRODUCTION
+  owner: team@example.com
+  
+  # Tags
+  tags:
+    project: my-project
+    purpose: application-storage
+    criticality: high
+    compliance: required
+    backup: enabled
+
