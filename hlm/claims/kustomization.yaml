@@ -10,8 +10,8 @@ namespace: hlm  # ← Composition usa isso para escolher secret aws-dev
 
 # Recursos (claims) a serem aplicados
 resources:
-- example-bucket.yaml
-- example-database.yaml
+#- example-bucket.yaml
+#- example-database.yaml
 # Adicione mais claims conforme necessário
 
 # Labels comuns para todos os recursos
