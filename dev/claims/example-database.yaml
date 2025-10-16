@@ -10,8 +10,9 @@ metadata:
     environment: dev # ← Composition usa isso para escolher secret aws-dev
     cost-center: CC-DEVELOPMENT
     team: backend-team
+    owner: backend-team  # Obrigatório pela policy de governance
   annotations:
-    owner: team@example.com  # Email vai em annotations, não em labels
+    owner-email: team@example.com  # Email detalhado em annotations
 spec:
   # Database configuration
   engine: postgresql

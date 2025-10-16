@@ -10,8 +10,9 @@ metadata:
     environment: dev # ← Composition usa isso para escolher secret aws-dev
     cost-center: CC-DEVELOPMENT
     team: platform-team
+    owner: platform-team  # Obrigatório pela policy de governance
   annotations:
-    owner: platform@example.com
+    owner-email: platform@example.com
     description: "VPC de desenvolvimento com subnets públicas e privadas"
 spec:
   # VPC CIDR
