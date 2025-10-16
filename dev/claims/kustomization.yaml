@@ -10,11 +10,11 @@ namespace: dev
 
 # Recursos (claims) a serem aplicados
 resources:
-- example-bucket.yaml
+#- example-bucket.yaml
 - example-vpc.yaml
 # - example-database.yaml  # Descomente quando a VPC estiver pronta
-- teste.yaml 
-- test-bucket-direct.yaml    # Comentado - bucket direto não funciona com kustomize/namespace
+#- teste.yaml 
+#- test-bucket-direct.yaml    # Comentado - bucket direto não funciona com kustomize/namespace
 
 # Labels comuns para todos os recursos
 commonLabels:
