@@ -1,0 +1,19 @@
+apiVersion: platform.example.com/v1alpha1
+kind: Bucket
+metadata:
+  name: my-first-bucket
+  namespace: dev
+  labels:
+    environment: dev
+    cost-center: CC-DEVELOPMENT
+    team: platform
+    owner: you
+spec:
+  storageClass: standard
+  publicAccess: false
+  versioning: true
+  encryption:
+    enabled: true
+  environment: dev
+  costCenter: CC-DEVELOPMENT
+  owner: you@example.com
