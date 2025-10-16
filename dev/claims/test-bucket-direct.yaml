@@ -8,11 +8,13 @@ metadata:
   labels:
     environment: dev
     team: platform
+    cost-center: CC-DEVELOPMENT
   annotations:
     owner: you@example.com
 spec:
-  forProvider:
-    region: us-east-1
-  providerConfigRef:
-    name: aws-default
+  environment: dev
+  costCenter: CC-DEVELOPMENT
+  owner: you@example.com
+
+
 

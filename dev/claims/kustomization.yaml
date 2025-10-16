@@ -14,7 +14,7 @@ resources:
 #- example-vpc.yaml
 # - example-database.yaml  # Descomente quando a VPC estiver pronta
 - teste.yaml 
-#- test-bucket-direct.yaml    # Comentado - bucket direto não funciona com kustomize/namespace
+- test-bucket-direct.yaml    # Comentado - bucket direto não funciona com kustomize/namespace
 
 # Labels comuns para todos os recursos
 commonLabels:
