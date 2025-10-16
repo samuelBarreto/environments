@@ -1,7 +1,7 @@
 ---
 # Bucket S3 criado DIRETAMENTE usando AWS Provider
 # (Sem usar XRD/Composition/Functions)
-apiVersion: s3.aws.upbound.io/v1beta1
+apiVersion: platform.example.com/v1alpha1
 kind: Bucket
 metadata:
   name: crossplane-test-bucket-samuel-123
