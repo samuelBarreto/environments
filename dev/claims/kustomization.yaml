@@ -13,8 +13,8 @@ resources:
 #- example-bucket.yaml
 #- example-vpc.yaml
 # - example-database.yaml  # Descomente quando a VPC estiver pronta
-- teste-bucket.yaml 
-- test-bucket-direct.yaml    # Bucket adicional para testes
+#- teste-bucket.yaml 
+#- test-bucket-direct.yaml    # Bucket adicional para testes
 
 # Labels comuns para todos os recursos
 commonLabels:
