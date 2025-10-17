@@ -24,9 +24,11 @@ spec:
   # Region
   region: us-east-1
   
-  # Networking - usar subnet pública da VPC dev
-  networkRef:
-    name: dev-vpc  # Referência à VPC criada
+  # Networking - IMPORTANTE: Preencher após criar a VPC
+  # Use: kubectl get network dev-vpc -n dev -o jsonpath='{.status.vpcId}'
+  # e: kubectl get network dev-vpc -n dev -o jsonpath='{.status.publicSubnetIds[0]}'
+  vpcId: ""  # Será preenchido com o VPC ID da dev-vpc
+  subnetId: ""  # Será preenchido com o Subnet ID público da dev-vpc
   
   subnetType: public  # Subnet pública com acesso à internet
   availabilityZone: us-east-1a

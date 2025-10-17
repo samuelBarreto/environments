@@ -16,7 +16,7 @@ metadata:
     description: "VPC de desenvolvimento com subnets públicas e privadas"
 spec:
   # VPC CIDR
-  cidrBlock: "192.168.0.0/16"
+  cidrBlock: "10.100.0.0/16"
   
   # Região AWS
   region: us-east-1
@@ -24,16 +24,16 @@ spec:
   # Subnets públicas (acesso à internet via Internet Gateway)
   subnets:
     public:
-    - cidrBlock: "192.168.1.0/24"
+    - cidrBlock: "10.100.1.0/24"
       availabilityZone: us-east-1a
-    - cidrBlock: "192.168.2.0/24"
+    - cidrBlock: "10.100.2.0/24"
       availabilityZone: us-east-1b
     
     # Subnets privadas (sem acesso direto à internet)
     private:
-    - cidrBlock: "192.168.11.0/24"
+    - cidrBlock: "10.100.11.0/24"
       availabilityZone: us-east-1a
-    - cidrBlock: "192.168.12.0/24"
+    - cidrBlock: "10.100.12.0/24"
       availabilityZone: us-east-1b
   
   # NAT Gateway para subnets privadas acessarem internet (opcional)
