@@ -9,13 +9,15 @@ kind: Kustomization
 namespace: dev
 
 # Recursos (claims) a serem aplicados
-resources:
+resources: []
+# Descomente os recursos que deseja criar:
 #- example-bucket.yaml
 #- example-vpc.yaml  # VPC necessária para a instância EC2
 # - example-database.yaml  # Descomente quando a VPC estiver pronta
 #- teste.yaml 
 #- test-bucket-direct.yaml    # Comentado - bucket direto não funciona com kustomize/namespace
 #- ec2-ubuntu-kube-demo.yaml  # EC2 Ubuntu com chave SSH kube-demo
+#- bedrock-agent-iam.yaml  # IAM resources para Bedrock Agent
 
 # Labels comuns para todos os recursos
 commonLabels:
