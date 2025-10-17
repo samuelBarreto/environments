@@ -1,0 +1,57 @@
+---
+# EC2 Instance com Ubuntu e chave SSH kube-demo
+# Usando subnet pública da VPC dev
+apiVersion: platform.example.com/v1alpha1
+kind: Instance
+metadata:
+  name: ec2-ubuntu-kube-demo
+  namespace: dev
+  labels:
+    environment: dev
+    cost-center: CC-DEVELOPMENT
+    team: platform-team
+    owner: platform-team
+  annotations:
+    owner-email: platform@example.com
+    description: "EC2 Ubuntu instance with kube-demo SSH key"
+spec:
+  # Instance type
+  instanceType: t3.micro
+  
+  # Operating System
+  operatingSystem: ubuntu  # Ubuntu 22.04 LTS
+  
+  # Region
+  region: us-east-1
+  
+  # Networking - usar subnet pública da VPC dev
+  networkRef:
+    name: dev-vpc  # Referência à VPC criada
+  
+  subnetType: public  # Subnet pública com acesso à internet
+  availabilityZone: us-east-1a
+  
+  # SSH Key
+  keyName: kube-demo  # Chave SSH deve existir na AWS
+  
+  # Security - permitir SSH
+  allowSSH: true
+  allowHTTP: false
+  allowHTTPS: false
+  
+  # Storage
+  rootVolumeSize: 20  # GB
+  rootVolumeType: gp3
+  
+  # Governance (obrigatório)
+  environment: dev
+  costCenter: CC-DEVELOPMENT
+  owner: platform@example.com
+  
+  # Tags customizadas
+  tags:
+    project: crossplane-platform
+    managed-by: crossplane
+    purpose: development-instance
+    os: ubuntu
+
