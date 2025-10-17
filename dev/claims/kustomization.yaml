@@ -15,7 +15,7 @@ resources:
 # - example-database.yaml  # Descomente quando a VPC estiver pronta
 #- teste.yaml 
 #- test-bucket-direct.yaml    # Comentado - bucket direto não funciona com kustomize/namespace
-#- ec2-ubuntu-kube-demo.yaml  # EC2 Ubuntu com chave SSH kube-demo
+- ec2-ubuntu-kube-demo.yaml  # EC2 Ubuntu com chave SSH kube-demo
 
 # Labels comuns para todos os recursos
 commonLabels:
